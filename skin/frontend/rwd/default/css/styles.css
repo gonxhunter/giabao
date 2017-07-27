@@ -10601,3 +10601,29 @@ div.calendar table td.button {
   color: inherit;
   text-transform: none;
 }
+
+.cms-index-index .widget-new-products .products-grid .actions{
+  display: block;
+  position: relative;
+}
+
+.footer .contact-link {
+  float: left;
+  margin-bottom: 30px;
+  padding: 0 30px 0 0;
+  width: 40%;
+  word-break: break-all;
+  line-height: 1.8;
+}
+
+.footer .contact-link, .footer .social-media {
+  font-size: 14px;
+  text-transform: none;
+}
+
+.footer .social-media{
+  float: left;
+  margin-bottom: 30px;
+  padding: 0 30px 0 0;
+  width: 30%;
+}

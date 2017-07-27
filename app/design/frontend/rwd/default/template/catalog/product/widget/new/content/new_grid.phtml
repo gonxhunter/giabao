@@ -29,9 +29,9 @@
     <div class="widget-title">
         <h2><?php echo $this->__('New Products') ?></h2>
     </div>
-    <div class="widget-products">
+    <div class="category-products">
         <?php echo $this->getPagerHtml() ?>
-        <?php $_columnCount = $this->getColumnCount(); ?>
+        <?php $_columnCount = 4; ?>
         <?php $i=0; ?>
         <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col-widget">
             <?php foreach ($_products->getItems() as $_product): ?>

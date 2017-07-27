@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layout>
+    <checkout_cart_index>
+        <reference name="content">
+            <remove name="checkout.cart.shipping"/>
+        </reference>
+    </checkout_cart_index>
+    <default>
+        <reference name="footer">
+            <remove name="footer_links"/>
+            <remove name="footer_links2"/>
+            <remove name="footer.newsletter" />
+        </reference>
+    </default>
+</layout>
