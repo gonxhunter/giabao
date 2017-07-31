@@ -1,0 +1,14 @@
+<!--@subject Email - Footer @-->
+                    <!-- End Content -->
+                    </td>
+                </tr>
+            </table>
+            <h5 class="closing-text">{{var store.getFrontendName()}}!</h5>
+            {{depend store_phone}}<b>Điện thoại:</b><a href="tel:{{var phone}}">{{var store_phone}}</a><br> {{/depend}}
+            {{depend store_hours}}<b>Thời gian mở cửa:</b><span class="no-link">{{var store_hours}}</span><br>{{/depend}}
+            {{depend store_address}} <b>Địa chỉ:</b> <a href="mailto:{{var store_email}}">{{var store_address}}</a>{{/depend}}
+        </td>
+    </tr>
+</table>
+<!-- End wrapper table -->
+</body>

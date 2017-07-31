@@ -10627,3 +10627,11 @@ div.calendar table td.button {
   padding: 0 30px 0 0;
   width: 30%;
 }
+
+#contactForm{
+  padding-left: 0px;
+}
+#contactForm input, #contactForm textarea{
+  width: 465px;
+  max-width: 465px;
+}
