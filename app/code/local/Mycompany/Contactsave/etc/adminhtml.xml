@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <mycompany_contactsave translate="title" module="mycompany_contactsave">
+            <title>Báo lỗi sản phẩm</title>
+            <sort_order>54</sort_order>
+            <action>adminhtml/contactsave_contactdata</action>
+        </mycompany_contactsave>
+    </menu>
+</config>
