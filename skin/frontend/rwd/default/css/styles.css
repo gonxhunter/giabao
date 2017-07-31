@@ -3241,7 +3241,6 @@ body {
 .logo {
   display: block;
   float: left;
-  width: 65%;
   min-width: 100px;
   min-height: 44px;
   text-align: center;
@@ -10634,4 +10633,7 @@ div.calendar table td.button {
 #contactForm input, #contactForm textarea{
   width: 465px;
   max-width: 465px;
+}
+.logo{
+  max-width: none;
 }
