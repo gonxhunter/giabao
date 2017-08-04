@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">																					
+			<action method="addItem" ifconfig="vsourz_catproduct/settings/loadjs"><type>skin_js</type><name>js/product_slider/jquery-1.10.2.min.js</name></action>
+			<action method="addItem" ifconfig="vsourz_catproduct/settings/loadowl"><type>skin_js</type><name>js/product_slider/owl.carousel.min.js</name></action>
+			<action method="addItem" ifconfig="vsourz_catproduct/settings/loadowl"><type>skin_css</type><name>css/product_slider/owl.carousel.css</name></action>
+			<action method="addItem" ifconfig="vsourz_catproduct/settings/loadowl"><type>skin_css</type><name>css/product_slider/owl.transitions.css</name></action>
+			<action method="addItem" ifconfig="vsourz_catproduct/settings/loadowl"><type>skin_css</type><name>css/product_slider/owl.theme.css</name></action>
+			<action method="addItem"><type>skin_css</type><name>css/product_slider/product_slider.css</name></action>
+		</reference>
+	</default>
+</layout>

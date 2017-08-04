@@ -17,64 +17,162 @@ $_productCollection->addAttributeToSelect(array(
     ->order(new Zend_Db_Expr('RAND()')) //in case we would like to sort products randomly
 ;
 
-
-$_helper = $this->helper('catalog/output');
 ?>
-<?php if (!$_productCollection->count()): ?>
-    <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
-<?php else: ?>
-    <div class="widget widget-new-products">
-        <div class="widget-title">
-            <h2><?php echo $this->__('Sản phẩm khuyến mại'); ?></h2>
+<?php
+$helper = Mage::helper("vsourz_catproduct");
+$pg_bg_color = $helper->getPaginationBgColor();
+$pg_bg_hover_color = $helper->getPaginationBgHoverColor();
+$nav_bg_color = $helper->getNavigationBgColor();
+$nav_bg_hover_color = $helper->getNavigationBgHoverColor();
+$desktop = $helper->getDesktop();
+$ipadland = $helper->getIpadland();
+$ipadport = $helper->getIpadport();
+$smallland = $helper->getSmallland();
+$smallport = $helper->getSmallport();
+$width = $helper->getWidth();
+$height = $helper->getHeight();
+$autoplay = ($helper->getAutoplay()==0)?"false":$helper->getAutoplay();
+$navigation = $helper->getNavigation();
+$pagination = $helper->getPagination();
+$rating = $helper->getRating();
+$cartbutton = $helper->getCartbutton();
+$wishlist = $helper->getWishlist();
+$compare = $helper->getCompare();
+$newproduct = trim($helper->getNewProductText());
+$saleproduct = trim($helper->getSaleProductText());
+?>
+<div class="category-product-slider">
+    <?php if($this->getTitle()): ?>
+        <div class="title">
+            <h3><?php echo $this->getTitle(); ?></h3>
         </div>
-        <div class="category-products">
-            <?php $_columnCount = 4; ?>
-            <?php $i = 0; ?>
-            <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col-widget">
-                <?php foreach ($_productCollection as $_product): ?>
-                    <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
-                        <?php $_imgSize = 210; ?>
-                        <?php // The image size is locked at 210 for this for display purposes. CSS has it at 75% which should equate to 278px?>
-                        <a href="<?php echo $_product->getProductUrl() ?>"
-                           title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"
-                           class="product-image">
-                            <img
-                                src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210) ?>"
-                                alt="<?php echo $this->stripTags($_product->getName(), null, true) ?>"/>
-                        </a>
-                        <div class="product-info">
-                            <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
-                                                        title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName(), 'name') ?></a>
-                            </h3>
-                            <?php echo $this->getPriceHtml($_product, true, '-widget-new-grid') ?>
-                            <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
-                            <div class="actions">
-                                <?php if ($_product->isSaleable()): ?>
-                                    <button type="button"
-                                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>"
-                                            class="button btn-cart"
-                                            onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product) ?>')">
-                                        <span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-                                <?php else: ?>
-                                    <p class="availability out-of-stock">
-                                        <span><?php echo $this->__('Out of stock') ?></span></p>
-                                <?php endif; ?>
-                                <ul class="add-to-links">
-                                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                                        <li><a href="<?php echo $this->getAddToWishlistUrl($_product) ?>"
-                                               class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                                    <?php endif; ?>
-                                    <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
-                                        <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>"
-                                                                                class="link-compare"><?php echo $this->__('Add to Compare') ?></a>
-                                        </li>
-                                    <?php endif; ?>
-                                </ul>
+    <?php endif; ?>
+    <div class="product-slider-outer">
+        <ul id="owl-demo" class="owl-carousel sale-product">
+            <?php foreach($_productCollection as $_product):?>
+                <li class="item">
+                    <div class="item-outer">
+                        <div class="item-inner">
+                            <div class="item-img">
+                                <div class="item-img-info">
+                                    <?php
+                                    // checking for new products
+                                    $newFrmDate = $_product->getNewsFromDate();
+                                    $newToDate = $_product->getNewsToDate();
+                                    // Checking for sale products
+                                    $specialFrmDate = $_product->getSpecialFromDate();
+                                    $specialToDate = $_product->getSpecialToDate();
+                                    $specialPrice = $_product->getSpecialPrice();
+                                    if(!empty($newFrmDate) && strtotime($newFrmDate) <= strtotime('now') && ( $newToDate == '' || (!empty($newToDate) && strtotime($newToDate) >= strtotime('now')))) { ?>
+
+                                        <?php if($newproduct!=""): ?>
+                                            <div class="new-box newproduct"><?php echo $newproduct; ?></div>
+                                        <?php endif; ?>
+
+                                    <?php }
+                                    if(!empty($specialFrmDate) && strtotime($specialFrmDate) <= strtotime('now') && ( $specialToDate == '' || (!empty($specialToDate) && strtotime($specialToDate) >= strtotime('now'))) && !empty($specialPrice)) { ?>
+
+                                        <?php if($saleproduct!=""): ?>
+                                            <div class="new-box saleproduct"><?php echo $saleproduct; ?></div>
+                                        <?php endif; ?>
+
+                                    <?php } ?>
+                                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+                                        <div class="main-image">
+                                            <img class="main-img lazyOwl" id="product-collection-image-<?php echo $_product->getId(); ?>"
+                                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210); ?>"
+                                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="box-content">
+                                <div class="product-info-inner">
+                                    <h2 class="product-name">
+                                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h2>
+
+                                    <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+                                    <div class="actions">
+                                        <div class="actions-inner">
+                                            <ul>
+                                                <?php if($cartbutton=="true") { ?>
+                                                    <?php if($_product->isSaleable()): ?>
+                                                        <li>
+                                                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                                                    <?php else: ?>
+                                                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                                    <?php endif; ?>
+                                                    </li>
+                                                <?php }?>
+                                                <?php if($wishlist=="true"){?>
+                                                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                                        <li>
+                                                            <a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="link-wishlist btn" title="Add to Wishlist">
+                                                                <?php echo $this->__('Add to Wishlist') ?><!--<i class="fa fa-heart"></i>-->
+                                                            </a>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php } ?>
+                                                <?php if($compare=="true"){?>
+                                                    <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+                                                        <li>
+                                                            <a href="<?php echo $_compareUrl ?>" class="link-compare btn" title="Add to Compare">
+                                                                <?php echo $this->__('Add to Compare') ?><!--<i class="fa fa-exchange"></i>-->
+                                                            </a>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
-<?php endif; ?>
+    <style>
+        .category-product-slider .owl-theme .owl-controls .owl-page span
+        {
+            background:#<?php echo $pg_bg_color;?>
+        }
+        .category-product-slider .owl-theme .owl-controls .owl-page.active span,
+        .category-product-slider .owl-theme .owl-controls .owl-page span:hover
+        {
+            background:#<?php echo $pg_bg_hover_color;?>
+        }
+        .category-product-slider .owl-theme .owl-controls .owl-buttons div
+        {
+            background:#<?php echo $nav_bg_color;?>
+        }
+        .category-product-slider .owl-theme .owl-controls .owl-buttons div:hover
+        {
+            background:#<?php echo $nav_bg_hover_color;?>
+        }
+    </style>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery(".sale-product").owlCarousel({
+                items : 4,
+                autoPlay : <?php echo $autoplay;?>,
+                itemsCustom : [
+                    [0, <?php echo $smallport;?>],
+                    [480, <?php echo $smallland;?>],
+                    [600, <?php echo $smallland;?>],
+                    [700, <?php echo $ipadport;?>],
+                    [1024, <?php echo $ipadland;?>],
+                    [1200, <?php echo $ipadland;?>],
+                    [1400, 3],
+                    [1600, 3]
+                ],
+                itemsMobile : false,
+                lazyLoad : true,
+                navigation : <?php echo $navigation;?>,
+                pagination: <?php echo $pagination;?>,
+                navigationText: ["<i class='fa'> &lt; </i>","<i class='fa'> &gt; </i>"]
+            });
+        });
+    </script>
+</div>

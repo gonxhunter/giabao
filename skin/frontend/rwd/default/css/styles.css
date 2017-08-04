@@ -10637,3 +10637,35 @@ div.calendar table td.button {
 .logo{
   max-width: 650px;
 }
+
+.sales-block{
+  float: left;
+  width: 70%;
+  padding-right: 3%;
+}
+.support-block{
+  float: left;
+  width: 30%;
+}
+.support-block .chat-image img{
+  padding-top: 10px;
+  width: 100%;
+}
+
+.teamviewer > a {
+  float: left;
+  padding: 0 8%;
+  width: 32%;
+}
+.teamviewer {
+  background-color: grey;
+  height: 150px;
+}
+@media only screen and (max-width: 770px) {
+    .support-block{
+      display: none;
+    }
+  .sales-block{
+    width: 100%;
+  }
+}

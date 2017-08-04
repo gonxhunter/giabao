@@ -1,0 +1,179 @@
+/*************************************************
+*CATEGORY PRODUCT SLIDER CSS
+*************************************************/
+.category-product-slider *{box-sizing:border-box;}
+.category-product-slider a{text-decoration:none !important;}
+.category-product-slider
+{
+	padding:10px 0;
+	overflow:hidden;
+}
+.category-product-slider .title{margin:0 0 15px 0;}
+.category-product-slider h3
+{
+	text-align:center;
+	padding:5px;
+	margin: 0;
+	background:#ededed;
+}
+.category-product-slider ul,
+.category-product-slider .actions-inner ul
+{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+.category-product-slider ul li
+{
+	margin:0;
+	list-style-type:none;
+}
+.category-product-slider .product-slider
+{
+	position:relative;
+	margin:0;
+}
+.product-slider-outer{margin:0 -15px;box-sizing:border-box;}
+.category-product-slider .ratings .rating-box{margin:0 auto;}
+.category-product-slider .actions-inner li{margin:5px 0;}
+.category-product-slider .owl-item .item
+{
+	padding:0 15px;
+	box-sizing:border-box;
+	margin:0;
+}
+.category-product-slider p,
+.std .category-product-slider p{margin:0;}
+.category-product-slider .item-inner
+{
+	position:relative;	
+	padding: 0;
+}
+.category-product-slider .item-img
+{
+	position:relative;
+}
+.category-product-slider .new-box
+{
+	position:absolute;
+	padding:5px;
+	left:0px;
+	top:0px;
+	min-width:50px;
+	text-align:center;
+	font-size:14px;
+	background:#000080 ;
+	z-index:99;
+	color:#fff;
+	height: auto;
+	text-indent: 0;
+	width: auto;
+}
+.category-product-slider .new-box.saleproduct
+{
+	right:0px;
+	left:auto;
+	background:#ff8000;
+}
+.category-product-slider .product-image
+{
+	border:none;
+	display:block;
+}
+.category-product-slider .product-image img{width:100%;}
+.category-product-slider .box-content
+{
+	text-align:center;
+	background:#ededed;
+	padding:10px;
+	margin:0;
+}
+.category-product-slider h2.product-name
+{
+	font-size:14px;
+	padding:0;
+	margin:0 0 10px 0;
+	text-transform:uppercase;
+	line-height:1.4;
+	font-weight:bold;
+}
+.category-product-slider .no-rating
+{
+	margin:5px 0;
+}
+.category-product-slider .price-box
+{
+	margin:5px 0;
+}
+.category-product-slider .price-box p
+{
+	margin:0 5px;
+	padding:0;
+	display:inline-block;
+}
+.category-product-slider .price-box .price
+{
+	font-size:14px;
+}
+.category-product-slider .actions li,
+{
+	margin:5px 0;
+}
+.category-product-slider button
+{
+	padding:0 15px;
+	line-height:30px;
+	text-align:center;
+	width:auto;
+	margin:0;
+	height:auto;
+}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div
+{
+	background:#000;
+	height:30px;
+	width:30px;
+	line-height:30px;
+	text-align:center;
+	color:#fff;
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div .fa
+{
+	line-height:30px;
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+	text-indent:0;
+	font-family:Arial, Helvetica, sans-serif;
+	display:block;
+}
+.category-product-slider .owl-theme .owl-controls .owl-buttons .owl-prev{left:15px;}
+.category-product-slider .owl-theme .owl-controls .owl-buttons .owl-next{right:15px;}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div:hover{background:#ddd;color:#000;}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div:hover .fa{color:#000;}
+.category-product-slider .owl-theme .owl-controls{text-align:center;margin:15px 0 0 0;}
+.category-product-slider .owl-theme .owl-controls .owl-page{display:inline-block;margin:0 3px;}
+.category-product-slider .owl-theme .owl-controls .owl-page span
+{
+	margin:0;
+	height:12px;
+	width:12px;
+	display:block;
+	cursor:pointer;
+	background:#333;	
+	-webkit-box-shadow:none;
+	-ms-box-shadow:none;
+	box-shadow:none;	
+	-webkit-border-radius: 100%;
+	-ms-border-radius: 100%;
+	border-radius: 100%;
+	transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;	
+}
+.category-product-slider .owl-theme .owl-controls .owl-page span:hover,
+.category-product-slider .owl-theme .owl-controls .owl-page.active span{background:#ccc;}

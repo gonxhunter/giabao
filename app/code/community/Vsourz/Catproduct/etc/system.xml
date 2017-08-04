@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<vsourz_catproduct translate="label">
+			<label>Category Product Slider</label>
+			<sort_order>156</sort_order>
+		</vsourz_catproduct>
+	</tabs>
+	<sections>
+		<vsourz_catproduct translate="label">
+		  <label>Category Product Slider</label>
+		  <tab>vsourz_catproduct</tab>
+		  <frontend_type>text</frontend_type>
+		  <sort_order>1000</sort_order>
+		  <show_in_default>1</show_in_default>
+		  <show_in_website>1</show_in_website>
+		  <show_in_store>1</show_in_store>
+		  <groups>
+			<settings translate="label">
+				<label>Slider Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>10</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+					<loadjs translate="label">
+							<label>Load JQuery Library</label>
+							<comment><![CDATA[Select True if JQuery library is not included in your Magento Project]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>vsourz_catproduct/source_truefalse</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+					</loadjs>
+					<loadowl translate="label">
+							<label>Load Owl Carousel Library</label>
+							<comment><![CDATA[Select True if Owl Carousel library is not included in your Magento Project]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>vsourz_catproduct/source_truefalse</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+					</loadowl>
+					<desktop translate="label">
+						<label>Desktop</label>
+						<comment><![CDATA[Enter number [Numeric] for display product in one row (Screen width &gt; 1240px)
+						<script type="text/javascript">
+						var desktop = document.getElementById("vsourz_catproduct_settings_desktop");
+						var att = document.createAttribute("onkeypress");
+						att.value = "return isNumberKey(event)";
+						desktop.setAttributeNode(att);
+						function isNumberKey(evt)
+						{
+						  var charCode = (evt.which) ? evt.which : evt.keyCode;
+						  if (charCode != 46 && charCode > 31 
+							&& (charCode < 48 || charCode > 57))
+							 return false;
+						  return true;
+						}
+						</script>
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>12</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</desktop>
+					<ipadland translate="label">
+                        <label>Tablet - Landscape</label>
+						<comment><![CDATA[Enter number [Numeric] for display product in one row (Screen max width 1240px)
+						<script type="text/javascript">
+						var ipadland = document.getElementById("vsourz_catproduct_settings_ipadland");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+ipadland.setAttributeNode(att);
+						</script>
+						]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>15</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</ipadland>
+					<ipadport translate="label">
+						<label>Tablet - Portrait</label>
+						<comment><![CDATA[Enter number [Numeric] for display product in one row (Screen max width 1022px)
+						<script type="text/javascript">
+						var ipadport = document.getElementById("vsourz_catproduct_settings_ipadport");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+ipadport.setAttributeNode(att);
+						</script>
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>20</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</ipadport>
+					<smallland translate="label">
+						<label>Mobile - Landscape</label>
+						<comment><![CDATA[Enter number [Numeric] for display product in one row (Screen max width 767px)
+						<script type="text/javascript">
+						var smallland = document.getElementById("vsourz_catproduct_settings_smallland");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+smallland.setAttributeNode(att);
+						</script>
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>25</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</smallland>
+					<smallport translate="label">
+						<label>Mobile - Portrait</label>
+						<comment><![CDATA[Enter number [Numeric] for display product in one row (Screen max width 479px)
+						<script type="text/javascript">
+						var smallport = document.getElementById("vsourz_catproduct_settings_smallport");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+smallport.setAttributeNode(att);
+						</script>						
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>30</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>						
+					</smallport>
+					<autoplay translate="label">
+						<label>Auto Play</label>
+						<comment><![CDATA[Enter time in milliseconds, Enter 0 for false
+						<script type="text/javascript">
+						var autoplay = document.getElementById("vsourz_catproduct_settings_autoplay");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+autoplay.setAttributeNode(att);
+						</script>
+						]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>32</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</autoplay>				
+					<navigation translate="label">
+                        <label>Navigation</label>
+						<comment><![CDATA[Enable slide navigation]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>300</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</navigation>
+					<navigationcolor translate="label">
+                        <label>Navigation Bg Color</label>
+						<comment><![CDATA[Select Color<script>var d = document.getElementById("vsourz_catproduct_settings_navigationcolor");
+d.className= d.className + " color";</script>]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>301</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>		
+						<depends>
+                                <navigation>true</navigation>
+                        </depends>
+					</navigationcolor>
+					<navigationhovercolor translate="label">
+                        <label>Navigation Bg Hover Color</label>
+						<comment><![CDATA[Select Color<script>var d = document.getElementById("vsourz_catproduct_settings_navigationhovercolor");
+d.className= d.className + " color";</script>]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>302</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>	
+						<depends>
+                                <navigation>true</navigation>
+                        </depends>
+					</navigationhovercolor>
+					<pagination translate="label">
+                        <label>Pagination</label>
+						<comment><![CDATA[Enable slide pagination]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>310</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</pagination>
+					<paginationcolor translate="label">
+                        <label>Pagination Bg Color</label>
+						<comment><![CDATA[Select Color<script>var d = document.getElementById("vsourz_catproduct_settings_paginationcolor");
+d.className= d.className + " color";</script>]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>311</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>	
+						<depends>
+                                <pagination>true</pagination>
+                        </depends>
+					</paginationcolor>
+					<paginationhovercolor translate="label">
+                        <label>Pagination Bg Hover Color</label>
+						<comment><![CDATA[Select Color<script>var d = document.getElementById("vsourz_catproduct_settings_paginationhovercolor");
+d.className= d.className + " color";</script>]]></comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>312</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>	
+						<depends>
+                                <pagination>true</pagination>
+                        </depends>
+					</paginationhovercolor>					
+				</fields>
+			</settings>
+			<productsettings translate="label">
+				<label>Product Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>11</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+					<imagewidth translate="label">
+						<label>Image Width</label>
+						<comment><![CDATA[Enter image width in px
+						<script type="text/javascript">
+						var imagewidth = document.getElementById("vsourz_catproduct_productsettings_imagewidth");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+imagewidth.setAttributeNode(att);
+						</script>
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>21</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</imagewidth>
+					<imageheight translate="label">
+						<label>Image Height</label>
+						<comment><![CDATA[Enter image height in px
+						<script type="text/javascript">
+						var imageheight = document.getElementById("vsourz_catproduct_productsettings_imageheight");
+						var att = document.createAttribute("onkeypress");
+att.value = "return isNumberKey(event)";
+imageheight.setAttributeNode(att);
+						</script>
+						]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>22</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</imageheight>
+					<rating translate="label">
+                        <label>Rating</label>
+						<comment><![CDATA[Select True for display rating]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>23</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</rating>
+					<cartbutton translate="label">
+                        <label>Cart Button</label>
+						<comment><![CDATA[Select True for display cart button]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>24</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</cartbutton>
+					<wishlist translate="label">
+                        <label>Wishlist Link</label>
+						<comment><![CDATA[Select True for display wishlist Link]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>25</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</wishlist>
+					<compare translate="label">
+                        <label>Compare Link</label>
+						<comment><![CDATA[Select True for display compare Link]]></comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>vsourz_catproduct/source_truefalse</source_model>
+                        <sort_order>26</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+					</compare>
+					<new_product translate="label">
+						<label>New Product Tag</label>
+						<comment><![CDATA[Enter tag for new product]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>27</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</new_product>
+					<sale_product translate="label">
+						<label>Sale Product Tag</label>
+						<comment><![CDATA[Enter tag for sale product]]></comment>
+						<frontend_type>text</frontend_type>
+						<sort_order>28</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</sale_product>
+				</fields>
+			</productsettings>
+		  </groups>
+		</vsourz_catproduct>
+	</sections>
+</config>

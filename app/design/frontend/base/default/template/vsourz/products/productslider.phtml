@@ -1,0 +1,160 @@
+<?php 
+$helper = Mage::helper("vsourz_catproduct");
+$pg_bg_color = $helper->getPaginationBgColor();
+$pg_bg_hover_color = $helper->getPaginationBgHoverColor();
+$nav_bg_color = $helper->getNavigationBgColor();
+$nav_bg_hover_color = $helper->getNavigationBgHoverColor();
+$desktop = $helper->getDesktop();
+$ipadland = $helper->getIpadland();
+$ipadport = $helper->getIpadport();
+$smallland = $helper->getSmallland();
+$smallport = $helper->getSmallport();
+$width = $helper->getWidth();
+$height = $helper->getHeight();
+$autoplay = ($helper->getAutoplay()==0)?"false":$helper->getAutoplay();
+$navigation = $helper->getNavigation();
+$pagination = $helper->getPagination();
+$rating = $helper->getRating();
+$cartbutton = $helper->getCartbutton();
+$wishlist = $helper->getWishlist();
+$compare = $helper->getCompare();
+$newproduct = trim($helper->getNewProductText());
+$saleproduct = trim($helper->getSaleProductText());
+?>
+<div class="category-product-slider">
+<?php $_products = $this->getProducts(); ?>
+<?php $_items = $this->getProductCount(); ?>
+<?php if($this->getTitle()): ?>
+<div class="title">
+	<h3><?php echo $this->getTitle(); ?></h3>
+</div>
+<?php endif; ?>
+<div class="product-slider-outer">
+<ul id="owl-demo" class="owl-carousel product-slider">
+<?php foreach($_products as $_product):?>		
+	<li class="item">
+	 	<div class="item-outer">
+			<div class="item-inner">
+				<div class="item-img">
+					<div class="item-img-info">
+						<?php 
+						// checking for new products
+						$newFrmDate = $_product->getNewsFromDate();
+						$newToDate = $_product->getNewsToDate();
+						// Checking for sale products
+						$specialFrmDate = $_product->getSpecialFromDate();
+						$specialToDate = $_product->getSpecialToDate();
+						$specialPrice = $_product->getSpecialPrice();
+						if(!empty($newFrmDate) && strtotime($newFrmDate) <= strtotime('now') && ( $newToDate == '' || (!empty($newToDate) && strtotime($newToDate) >= strtotime('now')))) { ?>
+						
+						<?php if($newproduct!=""): ?>
+							<div class="new-box newproduct"><?php echo $newproduct; ?></div>
+						<?php endif; ?>	
+							
+            			<?php } 
+						if(!empty($specialFrmDate) && strtotime($specialFrmDate) <= strtotime('now') && ( $specialToDate == '' || (!empty($specialToDate) && strtotime($specialToDate) >= strtotime('now'))) && !empty($specialPrice)) { ?>
+						
+						<?php if($saleproduct!=""): ?>
+							<div class="new-box saleproduct"><?php echo $saleproduct; ?></div>
+						<?php endif; ?>
+						
+                    	<?php } ?>					
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+							<div class="main-image">
+                				<img class="main-img lazyOwl" id="product-collection-image-<?php echo $_product->getId(); ?>"
+                     			src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210); ?>"
+                     			alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+  	               			</div>		
+						</a>
+					</div>
+				</div>
+				<div class="box-content">
+				<div class="product-info-inner">
+				<h2 class="product-name">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h2>                   
+
+					<?php echo $this->getPriceHtml($_product, true, '-new') ?>
+					<div class="actions">
+        				<div class="actions-inner">
+							<ul>
+                            	<?php if($cartbutton=="true") { ?>
+								<?php if($_product->isSaleable()): ?>
+        						<li>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+            						<?php else: ?>
+          							<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+          							<?php endif; ?>
+          						</li>  							
+                                <?php }?>
+                                <?php if($wishlist=="true"){?>   
+								<?php if ($this->helper('wishlist')->isAllow()) : ?>        						
+								<li>
+									<a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="link-wishlist btn" title="Add to Wishlist">
+										<?php echo $this->__('Add to Wishlist') ?><!--<i class="fa fa-heart"></i>-->
+									</a>
+								</li>        						
+								<?php endif; ?>				
+                                <?php } ?>
+                                <?php if($compare=="true"){?>			
+								<?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+        						<li>
+									<a href="<?php echo $_compareUrl ?>" class="link-compare btn" title="Add to Compare">
+										<?php echo $this->__('Add to Compare') ?><!--<i class="fa fa-exchange"></i>-->
+									</a>
+								</li>            				
+								<?php endif; ?>
+                                <?php } ?>
+         					</ul>
+						</div>
+                	</div>
+    			</div>
+				</div>
+			</div>
+		</div>
+	 </li>
+	<?php endforeach; ?>
+</ul>
+</div>
+<style>
+.category-product-slider .owl-theme .owl-controls .owl-page span
+{
+	background:#<?php echo $pg_bg_color;?>	
+}
+.category-product-slider .owl-theme .owl-controls .owl-page.active span,
+.category-product-slider .owl-theme .owl-controls .owl-page span:hover
+{
+	background:#<?php echo $pg_bg_hover_color;?>	
+}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div
+{
+	background:#<?php echo $nav_bg_color;?>	
+}
+.category-product-slider .owl-theme .owl-controls .owl-buttons div:hover
+{
+	background:#<?php echo $nav_bg_hover_color;?>	
+}
+</style>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery(".product-slider").owlCarousel({
+		items : 4,
+		autoPlay : <?php echo $autoplay;?>,
+		itemsCustom : [
+				[0, <?php echo $smallport;?>],
+				[480, <?php echo $smallland;?>],
+				[600, <?php echo $smallland;?>],
+				[700, <?php echo $ipadport;?>],
+				[1024, <?php echo $ipadland;?>],
+				[1200, <?php echo $ipadland;?>],
+				[1400, <?php echo $desktop;?>],
+				[1600, <?php echo $desktop;?>]
+			],
+		itemsMobile : false,
+		lazyLoad : true,
+		navigation : <?php echo $navigation;?>,
+		pagination: <?php echo $pagination;?>,
+		navigationText: ["<i class='fa'> &lt; </i>","<i class='fa'> &gt; </i>"]
+	}); 	
+});
+</script>
+</div>
