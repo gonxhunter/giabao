@@ -37,8 +37,6 @@ class Mycompany_Contactsave_Block_Adminhtml_Contactdata_Edit_Tab_Form extends Ma
             array(
                 'label' => Mage::helper('mycompany_contactsave')->__('Email'),
                 'name'  => 'customer_email',
-                'required'  => true,
-                'class' => 'required-entry',
 
            )
         );
@@ -49,8 +47,20 @@ class Mycompany_Contactsave_Block_Adminhtml_Contactdata_Edit_Tab_Form extends Ma
             array(
                 'label' => Mage::helper('mycompany_contactsave')->__('Telephone'),
                 'name'  => 'customer_phone',
-
+                'required' => true,
+                'class' => 'required-entry',
            )
+        );
+
+        $fieldset->addField(
+            'customer_company',
+            'text',
+            array(
+                'label' => Mage::helper('mycompany_contactsave')->__('Address'),
+                'name'  => 'customer_company',
+                'required' => true,
+                'class' => 'required-entry',
+            )
         );
 
         $fieldset->addField(

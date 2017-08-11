@@ -13,7 +13,7 @@ $_productCollection->addAttributeToSelect(array(
 //                        ->addAttributeToSort('price', 'asc') //in case we would like to sort products by price
     ->getSelect()
     ->where('price_index.final_price < price_index.price')
-    ->limit(4)//we can specify how many products we want to show on this page
+    ->limit(7)//we can specify how many products we want to show on this page
     ->order(new Zend_Db_Expr('RAND()')) //in case we would like to sort products randomly
 ;
 
@@ -48,7 +48,7 @@ $saleproduct = trim($helper->getSaleProductText());
         </div>
     <?php endif; ?>
     <div class="product-slider-outer">
-        <ul id="owl-demo" class="owl-carousel sale-product">
+        <ul id="owl-demo" class="owl-carousel product-slider">
             <?php foreach($_productCollection as $_product):?>
                 <li class="item">
                     <div class="item-outer">
@@ -154,7 +154,7 @@ $saleproduct = trim($helper->getSaleProductText());
     </style>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            jQuery(".sale-product").owlCarousel({
+            jQuery(".product-slider").owlCarousel({
                 items : 4,
                 autoPlay : <?php echo $autoplay;?>,
                 itemsCustom : [
@@ -164,8 +164,8 @@ $saleproduct = trim($helper->getSaleProductText());
                     [700, <?php echo $ipadport;?>],
                     [1024, <?php echo $ipadland;?>],
                     [1200, <?php echo $ipadland;?>],
-                    [1400, 3],
-                    [1600, 3]
+                    [1400, <?php echo $desktop;?>],
+                    [1600, <?php echo $desktop;?>]
                 ],
                 itemsMobile : false,
                 lazyLoad : true,

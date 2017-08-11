@@ -51,6 +51,12 @@
               // See app.js for details ?>
         <div class="store-language-container"></div>
 
+        <!-- Search -->
+
+        <div id="header-search" class="skip-content">
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+        
         <!-- Skip Links -->
 
         <div class="skip-links">
@@ -86,11 +92,7 @@
             <?php echo $this->getChildHtml('topMenu') ?>
         </div>
 
-        <!-- Search -->
 
-        <div id="header-search" class="skip-content">
-            <?php echo $this->getChildHtml('topSearch') ?>
-        </div>
 
         <!-- Account -->
 

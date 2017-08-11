@@ -4,8 +4,9 @@ class Mycompany_Contactsave_IndexController extends Mage_Contacts_IndexControlle
 {
     public function postAction()
     {
+
         $post = $this->getRequest()->getPost();
-        if ( $this->getRequest()->isPost() && $this->getRequest()->getPost('email') ) {
+        if ( $this->getRequest()->isPost()) {
         	
         	$name          = $this->getRequest()->getPost('name');
         	$email         = (string) $this->getRequest()->getPost('email');
@@ -13,7 +14,7 @@ class Mycompany_Contactsave_IndexController extends Mage_Contacts_IndexControlle
         	$fax           = $this->getRequest()->getPost('fax');
         	$company_name  = $this->getRequest()->getPost('company_name');
         	$comment  	   = $this->getRequest()->getPost('comment');
-        	
+
             $translate = Mage::getSingleton('core/translate');
             /* @var $translate Mage_Core_Model_Translate */
             $translate->setTranslateInline(false);
@@ -30,34 +31,32 @@ class Mycompany_Contactsave_IndexController extends Mage_Contacts_IndexControlle
                 if (!Zend_Validate::is(trim($post['comment']) , 'NotEmpty')) {
                     $error = true;
                 }
-
-                if (!Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
+                if (!Zend_Validate::is(trim($post['comment']) , 'NotEmpty')) {
                     $error = true;
                 }
 
                 if (Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
                     $error = true;
                 }
-
                 if ($error) {
                     throw new Exception();
                 }
                 
-                $mailTemplate = Mage::getModel('core/email_template');
-                /* @var $mailTemplate Mage_Core_Model_Email_Template */
-                $mailTemplate->setDesignConfig(array('area' => 'frontend'))
-                    ->setReplyTo($post['email'])
-                    ->sendTransactional(
-                        Mage::getStoreConfig(self::XML_PATH_EMAIL_TEMPLATE),
-                        Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER),
-                        Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT),
-                        null,
-                        array('data' => $postObject)
-                    );
-
-                if (!$mailTemplate->getSentSuccess()) {
-                    throw new Exception();
-                }
+//                $mailTemplate = Mage::getModel('core/email_template');
+//                /* @var $mailTemplate Mage_Core_Model_Email_Template */
+//                $mailTemplate->setDesignConfig(array('area' => 'frontend'))
+//                    ->setReplyTo($post['email'])
+//                    ->sendTransactional(
+//                        Mage::getStoreConfig(self::XML_PATH_EMAIL_TEMPLATE),
+//                        Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER),
+//                        Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT),
+//                        null,
+//                        array('data' => $postObject)
+//                    );
+//
+//                if (!$mailTemplate->getSentSuccess()) {
+//                    throw new Exception();
+//                }
 
                 $translate->setTranslateInline(true);
 				
@@ -75,8 +74,8 @@ class Mycompany_Contactsave_IndexController extends Mage_Contacts_IndexControlle
                 $contact->save();
                 
                 Mage::getSingleton('customer/session')->addSuccess(Mage::helper('contacts')->__('Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.'));
-                //$this->_redirect('*/*/');
-                $this->_redirectReferer();
+                $this->_redirect('/');
+//                $this->_redirectReferer();
 
                 return;
             } catch (Exception $e) {
