@@ -8813,7 +8813,7 @@ div.paypal-logo span > img {
   padding: 0;
   position: relative;
   margin: 0;
-  border: 10px solid #FFFFFF;
+  border: 10px solid grey;
 }
 .slideshow-container .slideshow > li {
   position: absolute;
@@ -8872,7 +8872,7 @@ div.paypal-logo span > img {
   background-color: #c9141b;
 }
 .slideshow-pager span.cycle-pager-active:before {
-  background-color: #297aa3;
+  background-color: #e60f1e;
 }
 .slideshow-pager > * {
   cursor: pointer;
@@ -10808,4 +10808,10 @@ a.header-account:hover{
 }
 #search_mini_form .search-button{
   background-color: #e60f1e;
+}
+.slideshow-container .slideshow{
+  background-color: grey;
+}
+.slideshow-container .slideshow .pager-box:before, .slideshow-container .slideshow .pager-box:after{
+  display: none!important;
 }

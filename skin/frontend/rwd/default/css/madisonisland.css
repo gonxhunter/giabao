@@ -103,7 +103,6 @@ body .promos > li {
   list-style: none;
   text-align: center;
   position: relative;
-  border: 1px solid #cccccc;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -117,7 +116,6 @@ body .promos > li {
 
 .promos img {
   max-width: 100%;
-  width: 100%;
 }
 
 .promos a:hover {
@@ -347,4 +345,7 @@ body .promos > li {
 .catalog-category-view div.categoryland-caption p.desc {
   font: italic 18px/28px Georgia, "Times New Roman", Times, serif;
   color: #656565;
+}
+.promos li:last-child img{
+  float: right;
 }
