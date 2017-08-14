@@ -3185,7 +3185,6 @@ body {
 .header-language-background {
   padding: 10px;
   background-color: #efefef;
-  text-transform: uppercase;
 }
 .header-language-background .header-language-container {
   max-width: 1200px;
@@ -3408,7 +3407,7 @@ a.skip-link {
 }
 .account-cart-wrapper {
   position: absolute;
-  top: 0px;
+  top: 40px;
   right: 0px;
 }
 @media only screen and (max-width: 770px) {
@@ -3581,11 +3580,10 @@ a.skip-link {
     z-index: 200;
   }
   .nav-primary li.level0 ul {
-    background: #FBFBFB;
-    border: solid 1px #cccccc;
+    background-color: #e60f1e;
     position: absolute;
     left: 0;
-    top: 30px;
+    top: 80px;
     /* Height of ".nav-primary a.level0" */
     z-index: 10;
     width: 250px;
@@ -3593,6 +3591,9 @@ a.skip-link {
     padding-right: 10px;
     display: none;
     /* Hide until displayed. */
+  }
+  #header-nav #nav .nav-primary li.level0 ul a{
+    line-height: 50px;
   }
   .nav-primary li.level1 ul {
     left: 60px;
@@ -3658,7 +3659,7 @@ a.skip-link {
   #header-search {
     display: block;
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 30%;
     width: 40%;
     height: 50px;
@@ -3850,7 +3851,7 @@ a.skip-link {
 @media only screen and (min-width: 771px) {
   .skip-cart {
     /*color: #e60f1e;*/
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
   }
   .skip-cart:hover {
     text-decoration: none;
@@ -10610,7 +10611,7 @@ div.calendar table td.button {
 .footer .contact-link {
   float: left;
   margin-bottom: 30px;
-  padding: 0 30px 0 0;
+  padding: 0 30px 0 20px;
   width: 40%;
   word-break: break-all;
   line-height: 1.8;
@@ -10690,7 +10691,21 @@ div.calendar table td.button {
   font-weight: bold;
 }
 #header-search #search_mini_form .input-text{
-  border: 2px solid #e60f1e;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #e60f1e;
+  border-radius: 0px;
+}
+
+#search_mini_form .search-button {
+  text-indent: -9999px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: none;
 }
 
 #search_mini_form .search-button:before {
@@ -10698,13 +10713,13 @@ div.calendar table td.button {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40px;
-  height: 40px;
-  margin-top: -20px;
-  margin-left: -20px;
-  background-position: 9px -139px;
-  background-color: #e60f1e;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  background-position: 4px -146px;
 }
+
 
 .footer {
   background-color: #efefef;
@@ -10713,6 +10728,84 @@ div.calendar table td.button {
   font-weight: bold;
 }
 .header-language-background, .header-language-background a {
+  color: black;
+  font-weight: 400;
+}
+#header-nav nav{
+  max-width: 1260px;
+  margin: 0 auto;
+  color: #fff;
+  padding: 0 30px;
+}
+#header-nav{
+  background-color: #e60f1e;
+}
+#header-nav #nav .nav-primary a{
+  color: #fff;
+  font-size: 15px;
+  line-height: 80px;
+  font-weight: 500;
+}
+#header-nav #nav .nav-primary li.level0:hover{
+  background-color: white;
+
+}
+#header-nav #nav .nav-primary li.level0.menu-active > a{
   color: #e60f1e;
-  font-weight: 600;
+}
+#header-search #search_mini_form label {
+  background-color: #e60f1e;
+  color: #fff;
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  width: 25%;
+}
+#header-search #search_mini_form #search{
+  float: left;
+  width: 75%;
+}
+
+.store-language-container li {
+  float: left;
+  font-size: 13px;
+}
+.header-account{
+  float:right;
+}
+
+.header-account {
+  background-image: url(../images/bg_toplinks.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  padding-left: 20px;
+  display: block;
+}
+a.header-account:hover{
+  background-position: 0 -80px;
+}
+
+.header-minicart .skip-cart .icon-cart{
+  background:url("../images/topcart.png") no-repeat scroll 8px 8px;
+  cursor: pointer;
+  display: block;
+  font-weight: normal;
+  height: 40px;
+  padding-left: 45px;
+  background-color: #e60f1e;
+  float: left;
+}
+.header-minicart .skip-cart .count-cart{
+  border: 1px solid #e60f1e;
+  padding: 12px 12px 10px 10px;
+  font-weight: bold;
+}
+#search_mini_form .search-button:before{
+  background:url("../images/search.png") no-repeat scroll center center;
+}
+#search_mini_form .search-button{
+  background-color: #e60f1e;
 }
