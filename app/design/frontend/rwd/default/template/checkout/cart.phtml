@@ -101,6 +101,9 @@
                 </tr>
                 <?php endif; ?>
             </thead>
+            <?php
+            /*
+            ?>
             <tfoot>
                 <tr>
                     <td colspan="50" class="a-right cart-footer-actions">
@@ -142,6 +145,7 @@
                     </td>
                 </tr>
             </tfoot>
+            */?>
             <tbody>
             <?php foreach($this->getItems() as $_item): ?>
                 <?php echo $this->getItemHtml($_item) ?>
@@ -175,3 +179,36 @@
     </div>
     <?php echo $this->getChildHtml('crosssell') ?>
 </div>
+<script type="text/javascript">
+    function updateQuantity(){
+        jQuery.ajax( {
+            url : "<?php echo Mage::getUrl('custom/ajax/update')?>",
+            data: jQuery(".cart form").serialize(),
+            dataType : 'json',
+            success : function(data) {
+                if(data.result == 'success'){
+                    jQuery("#shopping-cart-totals-table").replaceWith(data.totals);
+                    if(data.validateMinimumAmount != 'error') {
+                        jQuery("#shopping-cart-totals-table").next().find("button").removeAttr('disabled');
+                    }
+                    if(jQuery('.header-minicart')){
+                        jQuery('.header-minicart').html(data.sidebar);
+                    }
+                    var itemArray = data.item;
+                    for (var key in itemArray) {
+                        jQuery('#cart-price-' + key).html(itemArray[key]);
+                    }
+                    jQuery('.error-msg').html('');                    
+                }else{
+                    jQuery('.error-msg').html('<ul><li><span>' + data.result + '</span></li></ul>');
+                }
+            }
+        });
+    }
+
+    jQuery(document).ready(function(){
+        jQuery('.qty').change(function () {
+            updateQuantity();
+        })
+    })
+</script>

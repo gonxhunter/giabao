@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sutunam_Custom>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sutunam_Custom>
+    </modules>
+</config>

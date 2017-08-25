@@ -1,7 +1,7 @@
 <?php
 $_productCollection = Mage::getModel('catalog/product')->getCollection();
 $_productCollection->addAttributeToSelect(array(
-    'small_image',
+    'image',
     'name',
     'short_description'
 ))
@@ -80,7 +80,7 @@ $saleproduct = trim($helper->getSaleProductText());
                                     <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
                                         <div class="main-image">
                                             <img class="main-img lazyOwl" id="product-collection-image-<?php echo $_product->getId(); ?>"
-                                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210); ?>"
+                                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(450); ?>"
                                                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                                         </div>
                                     </a>

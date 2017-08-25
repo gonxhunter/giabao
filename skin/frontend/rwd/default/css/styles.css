@@ -1292,7 +1292,7 @@ a.button:hover {
 .main-container,
 .footer-container {
   position: relative;
-  max-width: 1260px;
+  
   margin: 0 auto;
   padding: 15px;
 }
@@ -1495,7 +1495,7 @@ a.button:hover {
  */
 @media only screen and (min-width: 771px) {
   .top-container {
-    max-width: 1260px;
+    
     margin: 0 auto;
     padding: 0 30px;
   }
@@ -3165,7 +3165,7 @@ body {
  * ============================================ */
 @media only screen and (min-width: 771px) {
   .page-header {
-    max-width: 1260px;
+    
     margin: 0 auto;
     padding: 0 30px;
   }
@@ -3187,9 +3187,9 @@ body {
   background-color: #efefef;
 }
 .header-language-background .header-language-container {
-  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 30px;
 }
 .header-language-background:after {
   content: '';
@@ -10732,7 +10732,7 @@ div.calendar table td.button {
   font-weight: 400;
 }
 #header-nav nav{
-  max-width: 1260px;
+  
   margin: 0 auto;
   color: #fff;
   padding: 0 30px;
@@ -10743,7 +10743,7 @@ div.calendar table td.button {
 #header-nav #nav .nav-primary a{
   color: #fff;
   font-size: 15px;
-  line-height: 80px;
+  line-height: 60px;
   font-weight: 500;
 }
 #header-nav #nav .nav-primary li.level0:hover{
@@ -10814,4 +10814,11 @@ a.header-account:hover{
 }
 .slideshow-container .slideshow .pager-box:before, .slideshow-container .slideshow .pager-box:after{
   display: none!important;
+}
+.product-cart-remove .cart-links{
+  float:left;
+}
+.product-cart-remove .cart-links li{
+  min-width:30px;
+  padding-top: 3px;
 }

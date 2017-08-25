@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sutunam_Custom>
+            <version>0.1.0</version>
+        </Sutunam_Custom>
+    </modules>
+    <frontend>
+        <routers>
+            <custom>
+                <use>standard</use>
+                <args>
+                    <module>Sutunam_Custom</module>
+                    <frontName>custom</frontName>
+                </args>
+            </custom>
+            <checkout>
+                <args>
+                    <modules>
+                        <Sutunam_Custom before="Mage_Checkout">Sutunam_Custom</Sutunam_Custom>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+        <layout>
+            <updates>
+                <sutunam_custom>
+                    <file>sutunam_custom.xml</file>
+                </sutunam_custom>
+            </updates>
+        </layout>
+    </frontend>
+</config>

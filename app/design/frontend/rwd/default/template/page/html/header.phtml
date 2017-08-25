@@ -37,15 +37,16 @@
                 <li><a href="<?php echo $this->getUrl('contact-us');?>"><strong><?php echo $this->__('Liên hệ')?></strong></a></li>
             </ul>
         </div>
+
         <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>"class="header-account">
             <span class="icon"></span>
-            <?php if(Mage::getSingleton("customer/session")->isLoggedIn()):?>
-                <span class="label"><strong><?php echo $this->__('Đăng nhập/ Đăng ký'); ?></strong></span>
+            <?php if( !Mage::getSingleton("customer/session")->isLoggedIn()):?>
+                <span class="label"><strong><?php echo $this->__('Đăng nhập'); ?></strong></span>
             <?php else:?>
                 <span class="label"><strong><?php echo $this->__('Tài khoản'); ?></strong></span>
             <?php endif;?>
         </a>
-
+        <span style="width: 50%; float: right;color: #e60f1e; font-weight: 600;">Hotline: 1900 55 88 03</span>
     </div>
 </div>
 
