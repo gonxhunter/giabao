@@ -3262,7 +3262,7 @@ body {
 
 @media only screen and (min-width: 771px) {
   .logo {
-    max-width: 300px;
+    max-width: 200px;
     min-height: 90px;
   }
   .logo .small {
@@ -10625,7 +10625,7 @@ div.calendar table td.button {
 .footer .social-media{
   float: left;
   margin-bottom: 30px;
-  padding: 0 30px 0 0;
+  padding: 0 30px 0 20px;
   width: 30%;
 }
 
@@ -10679,7 +10679,7 @@ div.calendar table td.button {
   width: 100%;
 }
 .category-product-slider{
-  border-top: 3px solid #e60f1e;
+  border-top: 2px solid #e60f1e;
 }
 
 .category-product-slider h3 {
@@ -10821,4 +10821,33 @@ a.header-account:hover{
 .product-cart-remove .cart-links li{
   min-width:30px;
   padding-top: 3px;
+}
+.widget-category-link{
+  width: 100%;
+}
+.widget.widget-category-link > a {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none;
+}
+.widget.widget-category-link span{
+  padding: 15px;
+  text-align: center;
+  background-color: #e60f1e;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 1199px) {
+  .footer .social-media, .footer .contact-link{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .promos{
+    display: none;
+  }
 }
