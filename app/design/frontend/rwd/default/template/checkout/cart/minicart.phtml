@@ -41,7 +41,10 @@
 
 <a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
     <span class="icon-cart"></span>
-    <span class="count-cart"><?php echo $_cartQty. ' sản phẩm'; ?></span>
+    <span class="count-cart">
+        <span class="count"><?php echo $_cartQty;?></span>
+        <span class="label-count"> sản phẩm</span>
+    </span>
 </a>
 
 <div id="header-cart" class="block block-cart skip-content">
