@@ -63,6 +63,7 @@ $saleproduct = trim($helper->getSaleProductText());
                                     $specialFrmDate = $_product->getSpecialFromDate();
                                     $specialToDate = $_product->getSpecialToDate();
                                     $specialPrice = $_product->getSpecialPrice();
+                                    /*
                                     if(!empty($newFrmDate) && strtotime($newFrmDate) <= strtotime('now') && ( $newToDate == '' || (!empty($newToDate) && strtotime($newToDate) >= strtotime('now')))) { ?>
 
                                         <?php if($newproduct!=""): ?>
@@ -76,7 +77,10 @@ $saleproduct = trim($helper->getSaleProductText());
                                             <div class="new-box saleproduct"><?php echo $saleproduct; ?></div>
                                         <?php endif; ?>
 
-                                    <?php } ?>
+                                    <?php } */ ?>
+                                    <div class="logo-label">
+                                        <img src="<?php echo $this->getSkinUrl('images/banner-product.jpg')?>" />
+                                    </div>
                                     <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
                                         <div class="main-image">
                                             <img class="main-img lazyOwl" id="product-collection-image-<?php echo $_product->getId(); ?>"

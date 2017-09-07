@@ -10882,3 +10882,16 @@ a.header-account:hover{
     display: none;
   }
 }
+
+.logo-label{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  max-width: 120px;
+  height: auto;
+  z-index: 99;
+}
+.logo-label img{
+  width: 100%;
+  height: auto;
+ }

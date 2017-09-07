@@ -44,20 +44,18 @@ $saleproduct = trim($helper->getSaleProductText());
 						// Checking for sale products
 						$specialFrmDate = $_product->getSpecialFromDate();
 						$specialToDate = $_product->getSpecialToDate();
-						$specialPrice = $_product->getSpecialPrice();
-						if(!empty($newFrmDate) && strtotime($newFrmDate) <= strtotime('now') && ( $newToDate == '' || (!empty($newToDate) && strtotime($newToDate) >= strtotime('now')))) { ?>
-						
-						<?php if($newproduct!=""): ?>
-							<div class="new-box newproduct"><?php echo $newproduct; ?></div>
-						<?php endif; ?>	
-							
-            			<?php } 
+						$specialPrice = $_product->getSpecialPrice();?>
+						<div class="logo-label">
+							<img src="<?php echo $this->getSkinUrl('images/banner-product.jpg')?>" />
+						</div>
+            			<?php
 						if(!empty($specialFrmDate) && strtotime($specialFrmDate) <= strtotime('now') && ( $specialToDate == '' || (!empty($specialToDate) && strtotime($specialToDate) >= strtotime('now'))) && !empty($specialPrice)) { ?>
-						
+
+						<?php /*
 						<?php if($saleproduct!=""): ?>
 							<div class="new-box saleproduct"><?php echo $saleproduct; ?></div>
 						<?php endif; ?>
-						
+						*/ ?>
                     	<?php } ?>					
 						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
 							<div class="main-image">
