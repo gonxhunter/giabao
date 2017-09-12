@@ -45,9 +45,7 @@ $saleproduct = trim($helper->getSaleProductText());
 						$specialFrmDate = $_product->getSpecialFromDate();
 						$specialToDate = $_product->getSpecialToDate();
 						$specialPrice = $_product->getSpecialPrice();?>
-						<div class="logo-label">
-							<img src="<?php echo $this->getSkinUrl('images/banner-product.jpg')?>" />
-						</div>
+						
             			<?php
 						if(!empty($specialFrmDate) && strtotime($specialFrmDate) <= strtotime('now') && ( $specialToDate == '' || (!empty($specialToDate) && strtotime($specialToDate) >= strtotime('now'))) && !empty($specialPrice)) { ?>
 
