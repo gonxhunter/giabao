@@ -27,25 +27,8 @@
 <div class="footer-container">
     <div class="footer">
         <?php echo $this->getChildHtml() ?>
-        <?php
-        //this code can be written directly in the template file
-        $visitor_count = Mage::getModel('log/visitor_online')
-            ->prepare()
-            ->getCollection()->count();
-
-        if(!empty($visitor_count) && $visitor_count > 0)
-        {
-            $cnt =  $visitor_count;
-        }
-        ?>
-        <div class="links social-media">
-            <div class="block-title"><strong><span>Lượng truy cập</span></strong></div>
-            <ul>
-                <li>Đang trực tuyến : <?php echo $cnt;?></li>
-                <li>Hôm nay : 444</li>
-                <li>Tổng lượt truy cập : 1244</li>
-            </ul>
-        </div>
+        <?php echo $this->getLayout()->createBlock('sm_visitor/count')->setTemplate('page/html/count.phtml')->toHtml() ?>
+        
         <address class="copyright"><?php echo $this->getCopyright() ?></address>
     </div>
 </div>

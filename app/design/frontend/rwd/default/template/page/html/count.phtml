@@ -1,0 +1,19 @@
+<?php
+//this code can be written directly in the template file
+$visitor_count = Mage::getModel('log/visitor_online')
+    ->prepare()
+    ->getCollection()->count();
+
+if(!empty($visitor_count) && $visitor_count > 0)
+{
+    $cnt =  $visitor_count;
+}
+?>
+<div class="links social-media">
+    <div class="block-title"><strong><span>Lượng truy cập</span></strong></div>
+    <ul>
+        <li>Đang trực tuyến : <?php echo $cnt;?></li>
+        <li>Hôm nay : <?php echo $this->getVisitorToday()?></li>
+        <li>Tổng lượt truy cập : <?php echo $this->getVisitorAll()?></li>
+    </ul>
+</div>
